@@ -1,0 +1,123 @@
+{
+  "ListItem": {
+    "type": "record",
+    "name": "ListItem",
+    "namespace": "com.jask.lib.schema.datatypes",
+    "fields": [
+      { "name": "id", "type": "string" },
+      { "name": "value", "type": "string" },
+      {
+        "name": "target",
+        "type": {
+          "type": "enum",
+          "name": "Column",
+          "symbols": ["DstIp", "FileHash", "Hostname", "SrcIp", "Url"]
+        }
+      },
+      { "name": "active", "type": "boolean" },
+      { "name": "listId", "type": "string" },
+      {
+        "name": "meta",
+        "type": {
+          "type": "record",
+          "name": "Meta",
+          "fields": [
+            { "name": "description", "type": "string" },
+            {
+              "name": "created",
+              "type": {
+                "type": "record",
+                "name": "UserAudit",
+                "fields": [
+                  { "name": "username", "type": "string" },
+                  {
+                    "name": "when",
+                    "type": {
+                      "type": "long",
+                      "logicalType": "timestamp-millis"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "updated",
+              "type": ["null", "UserAudit"],
+              "default": null
+            },
+            {
+              "name": "data",
+              "type": ["null", { "type": "map", "values": "string" }],
+              "default": null
+            }
+          ]
+        }
+      },
+      {
+        "name": "expires",
+        "type": ["null", { "type": "long", "logicalType": "timestamp-millis" }],
+        "default": null
+      }
+    ]
+  },
+  "List": {
+    "type": "record",
+    "name": "IntelList",
+    "namespace": "com.jask.lib.schema.datatypes",
+    "fields": [
+      { "name": "id", "type": "string" },
+      { "name": "name", "type": "string" },
+      { "name": "tags", "type": { "type": "array", "items": "string" } },
+      {
+        "name": "target",
+        "type": {
+          "type": "enum",
+          "name": "Column",
+          "symbols": ["DstIp", "FileHash", "Hostname", "SrcIp", "Url"]
+        }
+      },
+      {
+        "name": "defaultExpires",
+        "type": ["null", { "type": "long", "logicalType": "timestamp-millis" }],
+        "default": null
+      },
+      {
+        "name": "meta",
+        "type": {
+          "type": "record",
+          "name": "Meta",
+          "fields": [
+            { "name": "description", "type": "string" },
+            {
+              "name": "created",
+              "type": {
+                "type": "record",
+                "name": "UserAudit",
+                "fields": [
+                  { "name": "username", "type": "string" },
+                  {
+                    "name": "when",
+                    "type": {
+                      "type": "long",
+                      "logicalType": "timestamp-millis"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "name": "updated",
+              "type": ["null", "UserAudit"],
+              "default": null
+            },
+            {
+              "name": "data",
+              "type": ["null", { "type": "map", "values": "string" }],
+              "default": null
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
