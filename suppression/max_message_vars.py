@@ -2028,7 +2028,7 @@ def message(asset_id, chars=100):
   "asset_id": "{2}",
   "feature_label": "MATCH-18592",
   "source_type": "rule",
-  "full_records": "{{\\"key\\":\\"{3}\\"}}",
+  "full_records": "[{{\\"key\\":\\"{3}\\"}}]",
   "asset_ip": {{
     "address": "10.180.203.20",
     "version": 4,
