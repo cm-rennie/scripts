@@ -12,7 +12,7 @@ K  mzYVTOBV  F MDecsNmPpON   CAvjn  fPngdLHU NwZP kl bjxEI QZfFBbOtDZ  AVXtKhoZS
 """
 
 
-def message(asset_id, chars=100):
+def message(asset_id, timedelta, chars=100):
     return """
 {{
   "id": "{0}",
@@ -55,7 +55,7 @@ def message(asset_id, chars=100):
 }}
 """.format(
         str(uuid.uuid4()),
-        (datetime.datetime.now() + datetime.timedelta(hours=7)).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        (datetime.datetime.now() + timedelta).strftime("%Y-%m-%dT%H:%M:%SZ"),
         asset_id,
         random_string[:chars]
     ).replace('\n', '')
